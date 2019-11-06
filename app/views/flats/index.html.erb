@@ -1,0 +1,30 @@
+<div class="m-3">
+  <h1>All Our Flats</h1>
+
+  <p>All <%= Flat.count %> flats</p>
+</div>
+<div class="containter mt-3 flex-wrap d-flex">
+<!--   <div class="row"> -->
+    <% @flats.each do |flat| %>
+      <div class="flat-card m-3 shadow">
+        <img src="https://picsum.photos/300/200" alt="cardpic" class="flat-card-image">
+        <div class="flat-card-content p-4">
+          <ul class="list-unstyled py-0">
+            <li><h4><%= flat.name %></h4></li>
+            <li><%= flat.address %></li>
+            <li><div class="d-flex">
+              <p class="pr-2"><i class="fas fa-users"></i> <%= flat.number_of_guests %></p>
+              <p class="pr-2"><i class="fas fa-yen-sign"></i> <%= flat.price_per_night %></p>
+            </div></li>
+          </ul>
+        </div>
+        <div class="flat-card-actions d-flex p-3 border-top">
+          <%= link_to "More Info", flat_path(flat), class: "px-2" %>
+          <%= link_to "Edit", edit_flat_path(flat), class: "px-2" %>
+          <%= link_to 'Delete', flats_path, class: "px-2" %>
+        </div>
+      </div>
+    <% end %>
+<!--   </div> -->
+</div>
+
